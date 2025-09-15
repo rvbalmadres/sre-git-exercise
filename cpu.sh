@@ -37,6 +37,13 @@ else
     EXIT=2
 fi
 
-echo "$TIMESTAMP - $STATUS - ${UTIL}% utilization" >> "$LOGFILE"
+# Log CPU status and top processes
+{
+    echo "$TIMESTAMP - $STATUS - ${UTIL}% utilization"
+    echo "Top 5 CPU-consuming processes:"
+    ps -eo pid,comm,%cpu --sort=-%cpu | head -n 6
+    echo "----------------------------------------"
+} >> "$LOGFILE"
+
 exit $EXIT
 
