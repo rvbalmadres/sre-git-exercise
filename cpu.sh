@@ -38,5 +38,7 @@ else
 fi
 
 echo "$TIMESTAMP - $STATUS - ${UTIL}% utilization" >> "$LOGFILE"
+echo "Healthcheck run at: $(data)"
+
 exit $EXIT
 
