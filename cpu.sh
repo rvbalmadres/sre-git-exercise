@@ -39,6 +39,15 @@ fi
 
 echo "$TIMESTAMP - $STATUS - ${UTIL}% utilization" >> "$LOGFILE"
 echo "Healthcheck run at: $(data)"
+=======
+# Log CPU status and top processes
+{
+    echo "$TIMESTAMP - $STATUS - ${UTIL}% utilization"
+    echo "Top 5 CPU-consuming processes:"
+    ps -eo pid,comm,%cpu --sort=-%cpu | head -n 6
+    echo "----------------------------------------"
+} >> "$LOGFILE"
+echo "Healthcheck run at: $(date)"
 
 exit $EXIT
 
