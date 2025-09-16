@@ -2,6 +2,12 @@
 LOGFILE="/var/log/cpu_monitor.log"
 TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
 
+
+#imong code kay libog kaayo
+echo "Changes made ny polzan"
+
+
+
 # Read CPU stats twice with 1 second interval
 CPU1=($(grep '^cpu ' /proc/stat))
 sleep 1
